@@ -2,8 +2,9 @@ import joblib
 import streamlit as st
 import pandas as pd
 import numpy as np
+import os
 
-model = joblib.load(r"c:\Users\humag\OneDrive\Documents\PYTHON\fraud_detection_project\fraud_detection_model.pkl")
+model = os.path.join(os.path.dirname(__file__), 'fraud_detection_model.pkl')
 
 st.title("FRAUD DETECTION APP")
 
@@ -27,4 +28,5 @@ if st.button('PREDICT'):
     if Prediction == 1:
         st.error("The Transaction is FRAUDULENT")
     else:
+
         st.success("The Transaction is NOT FRAUDULENT")
